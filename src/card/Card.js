@@ -1,20 +1,24 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import style from './Card.less';
+import css from './Card.less';
 
 const Card = ({ name }) => {
-  const [flipped, setFlipped] = useState(false);
+  const [isFlipped, setFlipped] = useState(false);
+
+  const flipCard = () => {
+    setFlipped(!isFlipped);
+  };
 
   const containerClasses = classNames({
-    [style.cardContainer]: true,
-    [style.flipped]: flipped,
+    [css.cardContainer]: true,
+    [css.flipped]: isFlipped,
   });
 
   return (
-    <div className={containerClasses} onClick={(e) => setFlipped(!flipped) && e.preventDefault()}>
-      <div className={style.front}>{name}</div>
-      <div className={style.back}>back</div>
+    <div className={containerClasses} role="presentation" onClick={flipCard} onKeyDown={flipCard}>
+      <div className={css.front}>{name}</div>
+      <div className={css.back}>back</div>
     </div>
   );
 };

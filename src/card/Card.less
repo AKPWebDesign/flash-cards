@@ -1,23 +1,25 @@
+@phone: ~"only screen and (max-width: 719px)";
+
 .cardContainer {
   display: flex;
   flex-shrink: 0;
   flex-grow: 0;
-  width: 250px;
-  height: 150px;
-  box-shadow: 0px 0px 20px 6px rgba(0,0,0,0.75);
+  width: 10em;
+  height: 6em;
+  box-shadow: 0 0 0.75em 0.15em rgba(0,0,0,0.75);
   background-color: #eee;
-  border-radius: 10px;
-  margin: 10px;
+  border-radius: 0.5em;
+  margin: 1em;
   perspective: 1000px;
   font-family: 'Noto Sans', 'Noto Sans KR', 'Noto Sans SC', 'Noto Sans JP', 'Noto Sans TC', sans-serif;
-  font-size: 30px;
+  font-size: 10vh;
   transform-style: preserve-3d;
   transform-origin: center center;
   transition: all 0.5s ease-in-out;
   position: relative;
 
   &.flipped {
-    transform: rotateY(180deg);
+    transform: rotateY(180deg) rotateZ(-180deg);
   }
 
   .front, .back {
@@ -38,6 +40,10 @@
   }
 
   .back {
-    transform: rotateY(180deg);
+    transform: rotateY(180deg) rotateZ(-180deg);
+  }
+
+  @media @phone {
+    font-size: 5vh;
   }
 }
