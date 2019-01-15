@@ -17,8 +17,8 @@ const Card = ({ name }) => {
 
   return (
     <div className={containerClasses} role="presentation" onClick={flipCard} onKeyDown={flipCard}>
-      <div className={css.front}>{name}</div>
-      <div className={css.back}>back</div>
+      <div className={css.front}>私</div>
+      <div className={css.back}>わたし</div>
     </div>
   );
 };
